@@ -1,0 +1,41 @@
+# CLEAN-UP GAME
+# GAME MOVEMENT LOGIC - PERMITTED MOVES ENCODED
+
+# presumes a 10x10 grid of squares that have unique numbers (i) associated with them
+# defines how the player/Aid are allowed to move
+# basically simply accessing neighboring cells (no diagonals, no wrapping)
+
+if id <= 10:
+	if id == 1:
+		neighbors = [id+1, id+10]
+	elif id == 10:
+		neighbors = [id-1, id+10]
+	else:
+		neighbors = [id+1, id-1, id+10]
+
+elif id >= 91:
+	if id == 91:
+		neighbors = [id+1, id-10]
+	elif id == 100:
+		neighbors = [id-1, id-10]
+	else:
+		neighbors = [id+1, id-1, id-10]
+
+else:
+	# finding the first ones of each 10s
+	if id-1 % 10 == 0:
+		neighbors = [id+1, id+10, id-10]
+	elif id % 10 == 0:
+		neighbors = [id-1, id+10, id-10]
+	else:
+		neighbors = [id+1, id-1, id+10, id-10]
+
+
+# GAME-LOGIC THOUGHTS
+# probably each block should be a JS object that can hold information
+# about itself and its neighbors
+
+block = {
+	"id" : 1,
+	"neighbors" : [2, 11]
+}

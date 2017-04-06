@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clean Up</title>
+	<script src="d3.min.js"></script>
+	<style type="text/css">
+		body {
+			max-width: 620px;
+			margin: auto;
+			margin-top: 50px;
+		}
+
+		#game-board {
+			margin-top: 50px;
+			margin-bottom: 50px;
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
+		}
+
+		.block {
+			width: 60px;
+			height: 60px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<div id="game-board"></div>
+<script type="text/javascript">
+
+		// TODO: how to define a starting block?
+		// TODO: keyUp and keyDown etc. events to move around
+		// TODO: color/discolor the selected blocks
+
+		var color = "orange"; // set color of mess
+
+		var switchColor = function() {
+			if (this.style.backgroundColor == "") {
+				this.style.backgroundColor = color;
+			}
+			// restore no color on second access of the block
+			else {
+				this.style.backgroundColor = "";
+			}
+		};
+
+		// creating the blocks with d3
+		var gameBoard = d3.select('#game-board');
+		for (var i = 0; i < 100; i++) {
+			var block = gameBoard.append('div');
+			// adding +1 to the count to make it more human-intuitive (1-100)
+			var blockID = (i + 1).toString();
+			block.attr('id', blockID)
+					.attr('class', 'block')
+					.on('click', switchColor);
+		}
+</script>
+</body>
+</html>
