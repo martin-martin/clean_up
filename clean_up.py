@@ -51,7 +51,7 @@ agent_start = random.randint(1, 100)
 #print agent_start
 
 # how many steps to take
-moves = 50
+moves = 500
 
 # indicating the beginning and end with a 0
 # NOTE: this is a workaround that could be improved
@@ -81,4 +81,11 @@ def next_move(id, blocks, moves, agent_path):
     return next_move(next_id, blocks, moves, agent_path)
 
 
-print next_move(agent_start, blocks, moves, agent_path)
+export = next_move(agent_start, blocks, moves, agent_path)
+# remove the start and end digits
+export = export[1:-1]
+
+str_export = list()
+for b in export:
+  str_export.append(str(b))
+print str_export

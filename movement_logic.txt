@@ -30,6 +30,8 @@ else:
 	else:
 		neighbors = [id+1, id-1, id+10, id-10]
 
+# need to add to disallow back-stepping because boring
+
 
 # GAME-LOGIC THOUGHTS
 # probably each block should be a JS object that can hold information
