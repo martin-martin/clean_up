@@ -29,27 +29,6 @@
 <div id="game-board"></div>
 <script type="text/javascript">
 
-		// TODO: how to define a starting block?
-
-		// http://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
-		/**
-		 * Returns a random integer between min (inclusive) and max (inclusive)
-		 * Using Math.round() will give you a non-uniform distribution!
-		 */
-		function getRandomInt(min, max) {
-		    return Math.floor(Math.random() * (max - min + 1)) + min;
-		}
-
-		// randomly defining the starting position for the human player
-		startBlockId = getRandomInt(1, 100);
-		// console.log(startBlockId);
-
-		// IDEA: assign a class='isactive' to the block the player is currently at
-		// that class could both define the color switch as well as the allowe moves
-
-		startBlock = document.getElementById('block' + startBlockId);
-
-
 		// TODO: keyUp and keyDown etc. events to move around
 		// TODO: color/discolor the selected blocks
 
@@ -96,6 +75,32 @@
 			}
 		   // console.log(currentBlock);
 		}
+
+		// TODO: how to define a starting block?
+
+		// http://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
+		/**
+		 * Returns a random integer between min (inclusive) and max (inclusive)
+		 * Using Math.round() will give you a non-uniform distribution!
+		 */
+		function getRandomInt(min, max) {
+		    return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		// randomly defining the starting position for the human player
+		startBlockId = getRandomInt(1, 100);
+		// console.log(startBlockId);
+
+		// IDEA: assign a class='isactive' to the block the player is currently at
+		// that class could both define the color switch as well as the allowe moves
+
+		startBlock = document.getElementById('block' + startBlockId);
+		startBlock.className = "block in-focus";
+		startBlock.style.backgroundColor = "blue";
+
+		startBlock.onkeydown = 38;
+		console.log(startBlock);
+
 </script>
 </body>
 </html>
